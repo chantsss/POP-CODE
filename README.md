@@ -5,8 +5,9 @@ We are preparing the code release. Please check back later!
 
 Todo:
 1. - [x] Paper release
-2. - [ ] Code of inference.
-3. - [ ] Code of training.
-  1. - [ ] Code of SLL.
-  2. - [ ] Code of Feature distillation.
+You will find the following content in this repository.
+2. - [ ] Inference code.
+3. - [ ] Training.
+  1. - [ ] Self-supervised learning Stage.
+  2. - [ ] Feature distillation Stage.
     
