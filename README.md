@@ -7,6 +7,7 @@ Todo:
 1. - [x] Paper release
 
 You will find the following content in this repository.
+
 2. - [ ] Inference code.
 3. - [ ] Training.
   1. - [ ] Self-supervised learning Stage.
