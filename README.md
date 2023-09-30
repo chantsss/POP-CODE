@@ -9,7 +9,7 @@ Todo:
 You will find the following content in this repository.
 
  - [ ] Inference code.
- - [ ] Training.
+ - [ ] Training:
    - [ ] Self-supervised learning Stage.
    - [ ] Feature distillation Stage.
     
