@@ -4,12 +4,12 @@ This is the repository of the official implementation of ''Improving Autonomous 
 We are preparing the code release. Please check back later!
 
 Todo:
-1. - [x] Paper release
+- [x] Paper release.
 
 You will find the following content in this repository.
 
-2. - [ ] Inference code.
-3. - [ ] Training.
-  1. - [ ] Self-supervised learning Stage.
-  2. - [ ] Feature distillation Stage.
+ - [ ] Inference code.
+ - [ ] Training.
+   - [ ] Self-supervised learning Stage.
+   - [ ] Feature distillation Stage.
     
