@@ -1,0 +1,18 @@
+defaults:
+  - hydra: default
+  - datamodule: av1
+  - model: winnet-128
+  - submission: av1
+
+seed: 2333
+
+data_root: /home/cj/dataset/
+save_dir: ./h5
+filename: ${model.name}_${model.target.dim}_submission
+output: ${filename}
+checkpoint:
+
+# trainer
+batch_size: 128
+num_workers: 8
+gpus: 1

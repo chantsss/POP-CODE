@@ -1,0 +1,21 @@
+models:
+    - "vec60-vel-finetune-mask0.5-r5awa7d0": "jcheng-team/MAE-finetune/model-3d9hoh58:v59"
+    - "vec60-vel-fintune-mask0.5-1sj8w1pd": "jcheng-team/MAE-finetune/model-2ultouv8:v58" # keep, best non train-val
+    - "vec60-vel": "jcheng-team/MAE-finetune/model-29ink2kz:v60" # keep, best non finetune
+    - "vec60-vel-fintune-mask0.5-trainval-1sj8w1pd": "jcheng-team/MAE-finetune/model-13out67x:v60"
+    - "vec60-w10-trianval-vel": "jcheng-team/MAE-finetune/model-ybj6j4uu:v60" # keep, best non finetune with train-val
+    - "vec60-vel-finetune-trainval-r5awa7d1": "jcheng-team/MAE-finetune/model-38tvfrk8:v60"
+    - "vec60-vel-finetune-trainval-1sj8w1pd": "jcheng-team/MAE-finetune/model-13out67x:v60"
+    # - "vec60-encoder5-finetune": "jcheng-team/MAE-finetune-ablation/model-121a9wyo:v60"
+    # - "e4d4_a0.4_l0.5_e60_finetune_trainval": "jcheng-team/MAE-pretrain-final/model-17le3bdp:v60"
+    # - "e4d4_a0.4_l0.4_e60_finetune_trainval": "jcheng-team/MAE-pretrain-final/model-3jzgsa5s:v60"
+
+
+# best one in leaderboard
+    # - "vec60-vel-finetune-mask0.5-r5awa7d0": "jcheng-team/MAE-finetune/model-3d9hoh58:v59"
+    # - "vec60-vel-fintune-mask0.5-1sj8w1pd": "jcheng-team/MAE-finetune/model-2ultouv8:v58"
+    # - "vec60-vel": "jcheng-team/MAE-finetune/model-29ink2kz:v60"
+    # - "vec60-vel-fintune-mask0.5-trainval-1sj8w1pd": "jcheng-team/MAE-finetune/model-13out67x:v60"
+    # - "vec60-w10-trianval-vel": "jcheng-team/MAE-finetune/model-ybj6j4uu:v60"
+    # - "vec60-vel-finetune-trainval-r5awa7d0": "jcheng-team/MAE-finetune/model-38tvfrk8:v60"
+    # - "vec60-encoder5-finetune": "jcheng-team/MAE-finetune-ablation/model-121a9wyo:v60"

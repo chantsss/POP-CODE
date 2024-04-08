@@ -1,0 +1,4 @@
+save_folder: map_mae_av2
+target:
+  _target_: src.extractors.av2_extractor_map_mae.Av2ExtractorMapMAE
+  radius: 150

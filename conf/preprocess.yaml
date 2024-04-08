@@ -1,0 +1,9 @@
+defaults:
+  - extractor: av1_winnet
+
+batch: 50
+data_root: /home/cj/dataset/av1
+mode: [train, val, test]
+parallel: true
+analyze: false
+map_mae: false

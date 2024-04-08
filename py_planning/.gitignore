@@ -1,0 +1,30 @@
+# caches
+__pycache__/
+.vscode/
+backups/
+
+# yaml configs
+scripts/conf/*.yaml
+scripts/envs/l5kit/config/planning.yaml
+scripts/envs/l5kit/config/data_extractor.yaml
+
+# experiment files
+*.html
+*/*.bin
+
+# third parties
+commonroad_io/
+nuscenes-devkit/
+tutorials-3rdparties/
+commonroad-interactive-scenarios/
+interaction-dataset/
+l5kit-devkit/
+kmeans_pytorch/
+nuplan-devkit/
+
+# some tools
+scripts/convert_png2gif.py
+
+# tmp files
+mycmd.txt
+todo_list.txt

@@ -1,0 +1,8 @@
+save_folder: mae_forecast
+target:
+  _target_: src.extractors.av1_extractor_map_mae.Av1ExtractorMapMAE
+  mae_radius: 100
+  lane_length: 10
+  lane_points: 20
+  forecast: true
+  forecast_radius: 50

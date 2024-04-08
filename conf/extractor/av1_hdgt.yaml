@@ -1,0 +1,6 @@
+save_folder: hdgt
+target:
+  _target_: src.extractors.av1_extractor_hdgt.Av1ExtractorHDGT
+  lane_length: 10
+  lane_points: 20
+  filter_actor: false

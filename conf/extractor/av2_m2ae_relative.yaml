@@ -1,0 +1,4 @@
+save_folder: av2_m2ae_relative
+target:
+  _target_: src.extractors.av2_extractor_m2ae_relative.Av2ExtractorM2AERelative
+  radius: 150

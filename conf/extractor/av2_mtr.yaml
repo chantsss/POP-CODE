@@ -1,0 +1,10 @@
+save_folder: mtr
+target:
+  _target_: src.extractors.av2_extractor_mtr.Av2ExtractorMTR
+  max_lanes: 384
+  radius: 100
+  lane_length: 10
+  lane_points: 20
+  num_queries: 64
+  num_neighbors: 16
+  min_dis_to_map: 10

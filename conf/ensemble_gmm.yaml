@@ -1,0 +1,6 @@
+models:
+    - "a0.5-l0.5-gmm-lanemask-trainval": jcheng-team/Forecast-MAE/model-yyyc7way:v60
+    # - "a0.5-l0.5-gmm-lanemask": jcheng-team/Forecast-MAE/model-29s8iiux:v60
+    # - "a0.5-l0.5-gmm-trainval": jcheng-team/Forecast-MAE/model-16bn5035:v60
+    - "scratch-default": jcheng-team/Forecast-MAE/model-13q4fnrb:v60
+    - "finetune-default": jcheng-team/Forecast-MAE/model-320w7lxf:v60

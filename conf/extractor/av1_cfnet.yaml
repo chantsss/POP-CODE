@@ -1,0 +1,8 @@
+save_folder: cfnet
+target:
+  _target_: src.extractors.av1_extractor_cfnet.Av1ExtractorCFNet
+  radius: 75
+  max_agents: 32
+  max_lanes: 256
+  lane_length: 10
+  lane_points: 20

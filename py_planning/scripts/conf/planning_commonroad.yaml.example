@@ -1,0 +1,45 @@
+plan_config:
+  # planner type in ['ca', 'ca+', 'izone_rela', 'izone_ca', 'izone_ca+', 'conti', 'conti+']
+  planner_type: 'izone_rela' # 'izone_rela' 'izone_ca+'
+  # number of simulation steps
+  simu_steps: 80
+  # enable debug rviz or not
+  enable_debug_rviz: false
+  # from which frame step begins to start debug rviz
+  debug_rviz_step_from: 66 # 14 # 18
+
+  # planning horizon time (seconds)
+  plan_horizon_T: 6.0
+
+  # mode for prediction module, valid values are ['ca', 'lon-short', 'lon-short-v2']
+  prediction_mode: 'default'
+  # prediction horizon length (default is 12, 12*0.5=6.0s prediction horizon)
+  predict_horizon_L: 12
+  # prediction trajectory mode number (default is 10)
+  predict_traj_mode_num: 1
+
+  # solution tag string
+  # whose format follows: method_name_X_pY
+  #   name: string of the method name, (str, e.g., 'method_ca')
+  #   X: percentage of data being trained (float, e.g., '_0.1')
+  #   Y: number of multi modal trajectories being used in planning (e.g., 'p1')
+  # solu_tag_str: 'exp_izoneca+_0.6_p5'
+  solu_tag_str: 'exp_izonelr5.0_0.6_p5'
+  #'exp_izoneca+_0.6_p5' 'exp_pred8.0_0.6_p5' 'exp_ca+_0.6_p5' 'batchtest_dca_0.6_p1' 
+
+  # reaction configuration when planner_type == izone_rela
+  reaction_config:
+    algo_variable1: 1.0
+    algo_variable2: 3.0
+    algo_variable3: -15.0
+    reaction_conditions:
+      ignore_influ_cons: false # ignore constraints when relation is set influ
+      st_coefficents: 0 # default is 0
+      acc_mode: 'const' # 'const': constant acc value; 'v0-acc', '[s10p0.9]', ... follows keys in react_t2acc_table;
+      acc_const_value: -0.5
+      traj_mode: 'pred' # 'cvm', 'cam', 'pred', 'pred_cvm', 'irule'
+
+  # list of scenario (indexes) being simulated, if want to include all, input empty list []
+  limit_number_of_scenarios: 500
+  involved_subsequent_scenarios: false
+  involved_scenarios: []

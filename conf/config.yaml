@@ -1,0 +1,47 @@
+defaults:
+  - hydra: default
+  - datamodule: av2
+  - model: MAE-finetune
+  - submission: av2
+  - aug:
+
+seed: 2333
+monitor: ${model.monitor}
+save_top_k: 10
+
+data_subset: 1.0
+data_root: /home/cj/dataset/av1
+output: ${model.name}-${model.target.dim}
+artifact:
+checkpoint:
+
+# trainer
+batch_size: 32
+num_workers: 8
+warmup_epochs: 10
+epochs: 60
+gpus: 1
+sync_bn: false
+expand_trainval: false
+
+# optimizer
+lr: 0.001
+weight_decay: 1e-4
+gradient_clip_val: 5
+gradient_clip_algorithm: norm
+
+# logging & debug
+wandb: offline
+project: forecasting
+run_id:
+limit_train_batches:
+limit_val_batches:
+limit_test_batches:
+log_model: all
+
+# submission
+save_dir: ./h5
+filename: ${model.name}_${model.target.dim}_submission
+submit: false
+
+ensemble_config: ensemble

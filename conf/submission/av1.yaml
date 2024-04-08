@@ -1,0 +1,3 @@
+_target_: src.submission.submission_av1.SubmissionAv1
+save_dir: ${save_dir}
+filename: ${filename}

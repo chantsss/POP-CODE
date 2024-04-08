@@ -1,0 +1,4 @@
+_target_: src.aug.aug_mae_av2.AugMAEAv2
+rotate_angle: 0
+flip_prob: 0
+scale: [0.8, 1.2]

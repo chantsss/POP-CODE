@@ -1,0 +1,29 @@
+# name: hivt_av2
+
+# target:
+#   _target_: src.models.hivt_lite_av2.HiVTLite
+historical_steps: 50
+future_steps: 60
+num_modes: 6
+node_dim: 2
+edge_dim: 2
+dim: 128
+num_heads: 8
+dropout: 0.1
+nat_backbone: true
+pos_embed: true
+nll_cls: false
+num_temporal_layers: 4
+num_global_layers: 6
+local_radius: 100
+gaussian: false
+use_multipath_loss: false
+reduce_his_length: false
+random_his_length: false
+random_interpolate_zeros: false
+valid_observation_length: 50
+drop_all_agent: false
+lr: 5e-4
+weight_decay: 1e-4
+T_max: 64
+submission_handler:

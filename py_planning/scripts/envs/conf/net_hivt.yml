@@ -1,0 +1,115 @@
+# Dataset and dataloader parameters
+dataset: 'commonroad'
+
+batch_size: 48
+num_workers: 24
+
+# Encoder parameters
+model_type: 'hivt_recons'
+model_args:
+  historical_steps: 5
+  future_steps: 12
+  num_modes: 5
+  node_dim: 2
+  edge_dim: 2
+  dim: 128
+  num_heads: 8
+  dropout: 0.1
+  nat_backbone: true
+  pos_embed: true
+  nll_cls: false
+  num_temporal_layers: 2
+  num_global_layers: 3
+  local_radius: 100
+
+  historical_steps_recons: 5
+  future_steps_recons: 5
+  num_modes_recons: 5
+  node_dim_recons: 2
+  edge_dim_recons: 2
+  dim_recons: 128
+  num_heads_recons: 8
+  dropout_recons: 0.1
+  # drop_path: 0.0
+  nat_backbone_recons: true
+  pos_embed_recons: true
+  nll_cls_recons: false
+  num_temporal_layers_recons: 2
+  num_global_layers_recons: 3
+
+  reduce_his_length: false
+  random_his_length: false
+  random_interpolate_zeros: false
+  valid_observation_length: 5
+  use_cross_attention_by_adding: false
+  use_cross_attention_by_layer: false
+  cross_attention_at_local_embedding: false
+  use_correlation_w: false
+  drop_all_agent: false
+  warm_up_epoch: 0
+  only_train_recons: false
+  freeze_recons: false
+  muliti_task: false
+  add_init: false
+  feature_w: 0.5
+  init_w: 1
+  recons_w: 0
+  refine_w: 0
+  distillation: true
+  distillinit: true
+  distillrefine: false
+  decode_init: true
+  train_init: true
+  train_refine: false
+  train_recons: false
+  use_cross_attention_by_concat: false
+  teacher_ckpt_path: /home/sheng/py_planning/commonroad/models/net_5hivt128_full_pp1/checkpoints/best.tar
+
+  gaussian: false
+  use_multipath_loss: false
+
+
+# Optimizer parameters
+# recommend: 250
+optim_args:
+  lr: 0.002
+  scheduler_step: 50
+  scheduler_gamma: 0.6
+  save_with_refine: false
+
+
+losses: ['min_ade_k', 'min_ade_k', 'miss_rate_k', 'miss_rate_k', 'pi_bc']
+loss_weights: [1.0, 1.0, 1.0, 1.0, 0.5]
+loss_args:
+  - k: 5
+  - k: 10
+  - k: 5
+    dist_thresh: 2
+  - k: 10
+    dist_thresh: 2
+  - dummy: 0
+
+
+tr_metrics: ['min_ade_k', 'miss_rate_k']
+tr_metric_args:
+  - k: 10
+  - k: 5
+    dist_thresh: 2
+  - dummy: 0
+
+val_metrics: ['min_ade_k','min_ade_k','min_fde_k', 'min_fde_k', 'miss_rate_k']
+val_metric_args:
+  - k: 5
+  - k: 10
+  - k: 5
+  - k: 10
+  - k: 5
+    dist_thresh: 2
+  - dummy: 0
+
+
+log_freq: 100
+
+
+
+

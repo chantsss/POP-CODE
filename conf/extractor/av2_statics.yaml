@@ -1,0 +1,3 @@
+save_folder: statics
+target:
+  _target_: src.extractors.av2_statics.Av2Statics

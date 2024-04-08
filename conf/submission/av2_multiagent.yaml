@@ -1,0 +1,3 @@
+_target_: src.submission.submission_av2_multiagent.SubmissionAv2MultiAgent
+save_dir: ${save_dir}
+filename: ${filename}

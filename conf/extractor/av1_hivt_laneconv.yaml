@@ -1,0 +1,8 @@
+save_folder: hivt_laneconv
+target:
+  _target_: src.extractors.av1_extractor_hivt.Av1ExtractorHiVT
+  radius: 50
+  current_df_only: true
+  filter_actor: true
+  lane_connect: true
+  dilation: 4

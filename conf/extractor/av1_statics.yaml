@@ -1,0 +1,5 @@
+save_folder: av1_statics
+
+target:
+  _target_: src.extractors.av1_statics.Av1Statics
+  radius: 75

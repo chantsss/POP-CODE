@@ -1,0 +1,3 @@
+save_folder: av2_multiagent_statics
+target:
+  _target_: src.extractors.av2_multiagent_statics.Av2MultiAgentStatics

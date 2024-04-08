@@ -1,0 +1,4 @@
+save_folder: prophnet_av2
+target:
+  _target_: src.extractors.av2_extractor_prophnet.Av2ExtractorProphNet
+  radius: 150

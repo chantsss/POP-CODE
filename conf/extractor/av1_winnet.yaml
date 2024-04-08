@@ -1,0 +1,6 @@
+save_folder: winnet
+target:
+  _target_: src.extractors.av1_extractor_winnet.Av1ExtractorWinnet
+  max_agents: 32
+  max_lanes: 128
+  max_radius: 75

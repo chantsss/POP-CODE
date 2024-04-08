@@ -1,0 +1,16 @@
+val_metrics: ['min_ade_k', 'min_ade_k', 'min_fde_k', 'min_fde_k',
+              'miss_rate_k']
+val_metric_args:
+
+  - k: 6
+    mask_length: 12
+  - k: 1
+    mask_length: 12
+  - k: 6
+    mask_length: 12
+  - k: 1
+    mask_length: 12
+  - k: 6
+    dist_thresh: 2
+    mask_length: 12
+  - dummy: 0

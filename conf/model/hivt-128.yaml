@@ -1,0 +1,25 @@
+# name: hivt
+
+# target:
+# _target_: src.models.hivt.HiVT
+historical_steps: 20
+future_steps: 30
+num_modes: 6
+rotate: true
+node_dim: 2
+edge_dim: 2
+dim: 128
+num_heads: 8
+dropout: 0.1
+num_temporal_layers: 4
+num_global_layers: 3
+local_radius: 50
+parallel: false
+lr: 0.0005
+weight_decay: 0.0001
+reduce_his_length: true
+random_his_length: true
+random_interpolate_zeros: true
+valid_observation_length: 20
+embed_dim: 128
+T_max: 64

@@ -1,0 +1,63 @@
+# name: hivt
+
+# target:
+#   _target_: src.models.hivt_lite.HiVTLite
+historical_steps: 50
+future_steps: 60
+num_modes: 6
+node_dim: 2
+edge_dim: 2
+dim: 128
+num_heads: 8
+dropout: 0.1
+nat_backbone: true
+pos_embed: true
+nll_cls: false
+num_temporal_layers: 4
+num_global_layers: 6
+local_radius: 100
+
+historical_steps_recons: 50
+future_steps_recons: 50
+num_modes_recons: 6
+node_dim_recons: 2
+edge_dim_recons: 2
+dim_recons: 128
+num_heads_recons: 8
+dropout_recons: 0.1
+# drop_path: 0.0
+nat_backbone_recons: true
+pos_embed_recons: true
+nll_cls_recons: false
+num_temporal_layers_recons: 4
+num_global_layers_recons: 6
+
+reduce_his_length: true
+random_his_length: true
+random_interpolate_zeros: true
+valid_observation_length: 50
+use_cross_attention_by_adding: true
+use_cross_attention_by_layer: false
+cross_attention_at_local_embedding: false
+use_correlation_w: false
+drop_all_agent: false
+warm_up_epoch: 0
+only_train_recons: false
+freeze_recons: false
+muliti_task: false
+add_init: false
+feature_w: 0.5
+init_w: 0.5
+recons_w: 0.5
+refine_w: 1
+distillation: true
+decode_init: false
+use_cross_attention_by_concat: false
+teacher_ckpt_path: /home/sheng/POP/lightning_logs/version_13/checkpoints/epoch=1-step=20.ckpt
+
+gaussian: false
+use_multipath_loss: false
+lr: 5e-4
+weight_decay: 1e-4
+T_max: 64
+submission_handler:

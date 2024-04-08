@@ -1,0 +1,20 @@
+# name: hivt
+
+# target:
+#   _target_: src.models.hivt_plus.HiVT
+historical_steps: 50
+future_steps: 60
+num_modes: 6
+rotate: true
+node_dim: 2
+edge_dim: 2
+dim: 128
+num_heads: 8
+dropout: 0.1
+num_temporal_layers: 4
+num_global_layers: 3
+local_radius: 50
+parallel: false
+lr: 5e-4
+weight_decay: 1e-4
+T_max: 64

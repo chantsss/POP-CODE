@@ -1,0 +1,27 @@
+name: hivt_laneconv
+
+target:
+  _target_: src.models.hivt_lite.HiVTLite
+  historical_steps: 20
+  future_steps: 30
+  num_modes: 6
+  node_dim: 2
+  edge_dim: 2
+  dim: 128
+  num_heads: 8
+  dropout: 0.1
+  drop_path: 0.0
+  nat_backbone: true
+  pos_embed: false
+  nll_cls: false
+  num_temporal_layers: 4
+  num_global_layers: 6
+  gaussian: false
+  use_multipath_loss: false
+  use_lane_conv: true
+  lane_conv_layers: 3
+  dilation: 4
+  lr: ${lr}
+  weight_decay: ${weight_decay}
+  T_max: ${epochs}
+  submission_handler:

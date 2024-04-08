@@ -1,0 +1,27 @@
+# Dataset and dataloader parameters
+dataset: 'commonroad' # 'commonroad', 'interaction_dataset'
+
+batch_size: 96
+num_workers: 10
+
+# Dataset parameters
+dataset_config:
+  train_proportion: 0.8 # proportion of data[0:x] being used in trainning
+  eval_proportion: 0.2 # proportion of data[-x:] being used in trainning
+
+# Network parameters
+network:
+  # dimensionality of network layer to process trajectory inputs
+  dim_traj_layer_in: 9  # feature1 input dim
+  dim_speed_layer_in: 2 # feature2 input dim
+
+  dim_traj_layer_mid: 5
+  dim_traj_layer_out: 2
+
+# Optimizer parameters
+optim_args:
+  lr: 0.0001
+  scheduler_step: 15
+  scheduler_gamma: 0.95
+
+log_freq: 100
