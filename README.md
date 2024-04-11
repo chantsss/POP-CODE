@@ -154,7 +154,7 @@ This repository is built upon the following open-source projects:
 - [HiVT](https://github.com/ZikangZhou/HiVT)
 - [QCNet](https://github.com/ZikangZhou/QCNet)
 
-Many thanks to them for their for their outstanding efforts
+Many thanks to them for their outstanding efforts
 
 ## If you find this repo is useful, please consider giving us a star or citation:
 ```
