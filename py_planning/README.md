@@ -398,6 +398,8 @@ EXP_ROOT/${dataset}/exp_plan/videos/${tag_str}
 
 In addition,  prediction module in the simulation uses the configurations in **envs/conf/preprocess_simu_config.yaml**. 
 
+Here is an example to create GIFs from images **create_video.py**
+
 
 ### g. Evaluate closed-loop simulation performance
 
