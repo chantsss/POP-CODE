@@ -363,9 +363,6 @@ where, the [percentage %] means how much percentage of data are used in trainnin
 ```
 python scripts/planning_commonroad.py --model_path /your/EXP_ROOT/$dataset$/models/net_pgp_gatx2_lvm_pp1.0_final --check_point best --create_video 1
 
-full ob
-empty graphfull_ca_1.0_p1/videos/372_DEU_Muc-2_1_I-1-1
-
 ```
 
 - --model_path: the path to the prediction model being applied during closed-loop simulation
