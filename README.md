@@ -158,12 +158,12 @@ Many thanks to them for their outstanding efforts
 
 ## If you find this repo is useful, please consider giving us a star or citation:
 ```
-@misc{wang2023improving,
-      title={Improving Autonomous Driving Safety with POP: A Framework for Accurate Partially Observed Trajectory Predictions}, 
-      author={Sheng Wang and Yingbing Chen and Jie Cheng and Xiaodong Mei and Yongkang Song and Ming Liu},
-      year={2023},
-      eprint={2309.15685},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
+@inproceedings{wang2024improving,
+  title={Improving Autonomous Driving Safety with POP: A Framework for Accurate Partially Observed Trajectory Predictions},
+  author={Wang, Sheng and Chen, Yingbing and Cheng, Jie and Mei, Xiaodong and Xin, Ren and Song, Yongkang and Liu, Ming},
+  booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={14450--14456},
+  year={2024},
+  organization={IEEE}
 }
 ```
