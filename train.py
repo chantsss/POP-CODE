@@ -1,9 +1,24 @@
 
-#from argparse import ArgumentParser
-import hydrafrom hydra.utils import instantiatefrom omegaconf import OmegaConf
+#
+from argparse import ArgumentParser
+import hydra
+from hydra.utils import instantiate
+from omegaconf import OmegaConf
 import importlib
 
-import pytorch_lightning as plfrom pytorch_lightning.callbacks import ModelCheckpoint, Callbackfrom copy import copyfrom datamodules import Av1DataModulefrom datamodules import Av2DataModulefrom datamodules import Av2DataModuleQCNetfrom models.hivt import HiVTfrom models.hivt_lite import HiVTLitefrom models.hivt_plus import HiVTPlusfrom models.hivt_lite_recons import HiVTLiteRconsfrom models.hivt_lite_distill import HiVTLiteDistillfrom models.hivt_lite_mtask import HiVTLiteMTaskfrom models.qcnet.qcnet import QCNetfrom models.qcnet_lite.qcnet_lite import QCNetLitefrom models.qcnet_distill.qcnet_distill import QCNetDistillfrom models.qcnet_recons.qcnet_recons import QCNetRecons
+import pytorch_lightning as pl
+from pytorch_lightning.callbacks import ModelCheckpoint, Callback
+from copy import copy
+# from datamodules import Av1DataModule
+from datamodules import Av2DataModule
+from datamodules import Av2DataModuleQCNet
+from models.hivt import HiVT
+from models.hivt_lite import HiVTLite
+from models.hivt_plus import HiVTPlus
+from models.hivt_lite_recons import HiVTLiteRcons
+from models.hivt_lite_distill import HiVTLiteDistill
+from models.hivt_lite_mtask import HiVTLiteMTask
+from models.qcnet.qcnet import QCNet
 from pytorch_lightning.strategies.ddp import DDPStrategy
 
 import yaml
@@ -48,7 +63,7 @@ def parse_arguments():
     parser.add_argument('--persistent_workers', type=bool, default=True)
     parser.add_argument('--devices', type=int, default=1)
     parser.add_argument('--max_epochs', type=int, default=64)
-    parser.add_argument('--monitor', type=str, default='val_minADE_refine', choices=['val_minADE_recons', 'val_minFDE_refine', \
+    parser.add_argument('--monitor', type=str, default='val_minADE_recons', choices=['val_minADE_recons', 'val_minFDE_refine', \
                         'val_minADE_refine', 'val_minADE', 'val_minFDE', 'val_minMR'])
     parser.add_argument('--save_top_k', type=int, default=1000)
     parser.add_argument('--reduce_his_length', type=bool, default=False)
@@ -100,12 +115,6 @@ if __name__ == '__main__':
     setup_seed(seed)    
     args = parse_arguments()
     model_config, config = load_model_config(args)
-    # data_module_config = load_datamodule_config(args)
-    # if 'submission_handler' in config:
-    #     module_name, class_name = config['submission_handler'].rsplit('.', 1)
-    #     module = importlib.import_module(module_name)
-    #     submission_handler = getattr(module, class_name)
-    #     submission_handler = submission_handler(save_dir='./', filename=args.model_name)
     
     if args.model_name == 'hivt':
         model = HiVT(**model_config)
@@ -127,15 +136,6 @@ if __name__ == '__main__':
 
     elif args.model_name == 'qcnet':
         model = QCNet(**model_config)
-
-    elif args.model_name == 'qcnet_lite':
-        model = QCNetLite(**model_config)
-
-    elif args.model_name == 'qcnet_distill':
-        model = QCNetDistill(**model_config)
-
-    elif args.model_name == 'qcnet_recons':
-        model = QCNetRecons(**model_config)
 
     if args.recons_model_path != '':
         # Load pre-trained weights
@@ -209,8 +209,6 @@ if __name__ == '__main__':
     
     empty_cache_callback = EmptyCacheCallback()
 
-    # model.recons = False
-    # model.distill = False
     if args.resume:
         model.distill = False
         trainer = pl.Trainer.from_argparse_args(args, callbacks=[model_checkpoint, empty_cache_callback], accelerator='gpu',
@@ -220,12 +218,8 @@ if __name__ == '__main__':
         trainer = pl.Trainer.from_argparse_args(args, callbacks=[model_checkpoint, empty_cache_callback], accelerator='gpu',
                                                 strategy = DDPStrategy(find_unused_parameters=True), precision=16)
 
-    # trainer.current_epoch = model_dict_['epoch']
-    # trainer.global_step = model_dict_['global_step']
-    # trainer.lr_scheduler_configs = model_dict_['lr_schedulers']
-
-    if args.dataset == 'av1':
-        datamodule = Av1DataModule.from_argparse_args(args, test=args.test)
+    # if args.dataset == 'av1':
+    #     datamodule = Av1DataModule.from_argparse_args(args, test=args.test)
     if args.dataset == 'av2':
         datamodule = Av2DataModule.from_argparse_args(args, test=args.test)
     if args.dataset == 'av2qcnet':

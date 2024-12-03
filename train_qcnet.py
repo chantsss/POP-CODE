@@ -1,4 +1,5 @@
 
+
 from argparse import ArgumentParser
 import hydra
 from hydra.utils import instantiate
@@ -8,7 +9,7 @@ import importlib
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint, Callback
 from copy import copy
-from datamodules import Av1DataModule
+# from datamodules import Av1DataModule
 from datamodules import Av2DataModule
 from datamodules import Av2DataModuleQCNet
 from models.hivt import HiVT
@@ -18,9 +19,6 @@ from models.hivt_lite_recons import HiVTLiteRcons
 from models.hivt_lite_distill import HiVTLiteDistill
 from models.hivt_lite_mtask import HiVTLiteMTask
 from models.qcnet.qcnet import QCNet
-from models.qcnet_lite.qcnet_lite import QCNetLite
-from models.qcnet_distill.qcnet_distill import QCNetDistill
-from models.qcnet_recons.qcnet_recons import QCNetRecons
 from pytorch_lightning.strategies.ddp import DDPStrategy
 
 import yaml
@@ -145,15 +143,6 @@ if __name__ == '__main__':
     elif args.model_name == 'qcnet':
         model = QCNet(**model_config)
 
-    elif args.model_name == 'qcnet_lite':
-        model = QCNetLite(**model_config)
-
-    elif args.model_name == 'qcnet_distill':
-        model = QCNetDistill(**model_config)
-
-    elif args.model_name == 'qcnet_recons':
-        model = QCNetRecons(**model_config)
-
     if args.recons_model_path != '':
         # Load pre-trained weights
         pretrained_dict = torch.load(args.recons_model_path)['state_dict']
@@ -219,8 +208,6 @@ if __name__ == '__main__':
     
     empty_cache_callback = EmptyCacheCallback()
 
-    # model.recons = False
-    # model.distill = False
     if args.resume:
         model.distill = False
         trainer = pl.Trainer.from_argparse_args(args, callbacks=[model_checkpoint, empty_cache_callback], accelerator='gpu',
@@ -230,12 +217,8 @@ if __name__ == '__main__':
         trainer = pl.Trainer.from_argparse_args(args, callbacks=[model_checkpoint, empty_cache_callback], accelerator='gpu',
                                                 strategy = DDPStrategy(find_unused_parameters=True), precision=16)
 
-    # trainer.current_epoch = model_dict_['epoch']
-    # trainer.global_step = model_dict_['global_step']
-    # trainer.lr_scheduler_configs = model_dict_['lr_schedulers']
-
-    if args.dataset == 'av1':
-        datamodule = Av1DataModule.from_argparse_args(args, test=args.test)
+    # if args.dataset == 'av1':
+    #     datamodule = Av1DataModule.from_argparse_args(args, test=args.test)
     if args.dataset == 'av2':
         datamodule = Av2DataModule.from_argparse_args(args, test=args.test)
     if args.dataset == 'av2qcnet':
@@ -275,12 +258,7 @@ if __name__ == '__main__':
             trainer.test(model, datamodule, ckpt_path=args.model_path)
         else:
             trainer.validate(model, datamodule, ckpt_path=args.model_path)        
-        # trainer.validate(model, datamodule)
+
     else:
-        # if args.model_path != '':
-        #     trainer.fit(model, datamodule)
-        # else:
-        # model.recons = False
-        # model.distill = True
-        # model.load_teacher()
+
         trainer.fit(model, datamodule)

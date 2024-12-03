@@ -108,11 +108,11 @@ av2/
 
 - POP-Q
     ```
-    1.SLL pretrain stage, use qcnet-av2-recons.yaml with recons flag True:
-    python  train_qcnet.py --root /path/to/av2  --model_name qcnet --dataset av2qcnet --data_subset 1 --model_config /path/to/POP/conf/model/qcnet-av2-recons.yaml --train_batch_size 2 --val_batch_size 2
+    1.SLL pretrain stage, use qcnet-av2-recons.yaml with recons flag True, and choose the fusion way between attn or concat:
+    python  train_qcnet.py --root /path/to/av2  --model_name qcnet --dataset av2qcnet --data_subset 1 --model_config /path/to/POP/conf/model/qcnet-av2.yaml --train_batch_size 2 --val_batch_size 2
 
-    2.Distill stage, use qcnet-av2-recons.yaml with distill flag True, recons flag False and QCNet_AV2.ckpt:
-    python  train_qcnet.py --root /path/to/av2  --model_name qcnet --dataset av2qcnet --data_subset 1 --model_config /path/to/POP/conf/model/qcnet-av2-recons.yaml --train_batch_size 2 --val_batch_size 2
+    2.Distill stage, use qcnet-av2-recons.yaml with distill flag True, recons flag False and QCNet_AV2.ckpt and recons_model_ckpt:
+    python  train_qcnet.py --root /path/to/av2  --model_name qcnet --dataset av2qcnet --data_subset 1 --model_config /path/to/POP/conf/model/qcnet-av2.yaml --train_batch_size 2 --val_batch_size 2
     --recons_model_path /path/to/**.ckpt
 
     3.Eval on validation dataset, pass True to eval and specify the model_path 
