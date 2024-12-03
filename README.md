@@ -27,7 +27,7 @@
     **You can choose to Install environment from requirement file or install step by step**
     - 1. Install environment from requirements.txt
         ```
-        conda install --yes --file requirements.txt
+        pip install -r requirements.txt
         ```
         
     - 2. Install step by step 
@@ -55,8 +55,8 @@
 
         - Install av1 av2
             ```
+            pip install av2 -i https://pypi.mirrors.ustc.edu.cn/simple/ (recommended, since av1's dependencies may be conflict to av2)
             pip install  git+https://github.com/argoai/argoverse-api.git
-            pip install av2 -i https://pypi.mirrors.ustc.edu.cn/simple/
             ```
 
 - Date structure
