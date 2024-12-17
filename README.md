@@ -1,6 +1,6 @@
 # POP-CODE
 
-**This is the repo for ''Improving Autonomous Driving Safety with POP: A Framework for Accurate Partially Observed Trajectory Predictions ''.**
+**[ICRA 2024] Improving Autonomous Driving Safety with POP: A Framework for Accurate Partially Observed Trajectory Predictions**
 
 **News: Our work is accepted in** [ICRA2024](https://2024.ieee-icra.org/) !!! [Paper](https://arxiv.org/abs/2309.15685) | [Project Page](https://chantsss.github.io/POP/)
 
